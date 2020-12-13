@@ -115,18 +115,18 @@
       </div>
   </div>
   <div ng-controller="ColumnSettingsController">
-    <mpk-modal title="Column settings" visible="showColumnSettings">
+    <mpk-modal title="泳道设置" visible="showColumnSettings">
       <form  class="noMargin" name="columnSettings" ng-submit="update()">
           <div class="form-group">
-            <label class="control-label" for="columnName">Column name</label>
+            <label class="control-label" for="columnName">泳道名称</label>
             <div class="controls">
               <div>
-                <input name="columnName" type="text" id="columnName" placeholder="Title on a card" ng-model="model.columnName" required class="form-control" />
+                <input name="columnName" type="text" id="columnName" placeholder="" ng-model="model.columnName" required class="form-control" />
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label" for="columnColor">Column color</label>
+            <label class="control-label" for="columnColor">泳道颜色</label>
             <div class="controls">
               <div>
                 <div class="col-md-3" style="padding-left: 0px;">
@@ -138,7 +138,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label" for="columnLimit">Card limit for this column</label>
+            <label class="control-label" for="columnLimit">最大卡片数量</label>
             <div class="controls row">
               <div class="col-md-2">
                 <input name="columnLimit" type="number" ng-model="model.limit" class="form-control" />
@@ -147,54 +147,54 @@
           </div> 
           <hr />         
           <div class="form-group">
-            <button type="button" class="btn btn-sm btn-success" ng-click="addColumn('left')"><i class="glyphicon glyphicon-arrow-left"></i> Add column to the left</button>
-            <button type="button" class="btn btn-sm btn-success pull-right" ng-click="addColumn('right')">Add column to the right <i class="glyphicon glyphicon-arrow-right"></i></button>
+            <button type="button" class="btn btn-sm btn-success" ng-click="addColumn('left')"><i class="glyphicon glyphicon-arrow-left"></i> 在左边创建泳道</button>
+            <button type="button" class="btn btn-sm btn-success pull-right" ng-click="addColumn('right')">在右边创建泳道 <i class="glyphicon glyphicon-arrow-right"></i></button>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger pull-left" ng-hide="model.showWarning" ng-click="delete()">Delete column</button>
-            <button type="button" class="btn btn-danger pull-left" ng-show="model.showWarning" ng-click="delete()" ng-disabled="model.deleteDisabled">Click again to delete this column <i class="glyphicon glyphicon-exclamation-sign"></i></button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-danger pull-left" ng-hide="model.showWarning" ng-click="delete()">删除</button>
+            <button type="button" class="btn btn-danger pull-left" ng-show="model.showWarning" ng-click="delete()" ng-disabled="model.deleteDisabled">再次点击确定删除 <i class="glyphicon glyphicon-exclamation-sign"></i></button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-primary">更新</button>
         </div>
       </form>
     </mpk-modal>
   </div>
   <div ng-controller="NewKanbanCardController">
-    <mpk-modal title="New card for column '{{kanbanColumnName}}'" visible="showNewCard">
+    <mpk-modal title="创建新的卡片" visible="showNewCard">
       <form class="noMargin" name="newCardForm" ng-submit="addNewCard(newCard)">
         <div class="form-group">
-            <label class="control-label" for="newCardTitle">Kanban card title</label>
+            <label class="control-label" for="newCardTitle">卡片标题</label>
             <div>
-              <input type="text" id="newCardTitle" placeholder="Title on a card" ng-model="newCard.title" required focus-me class="cardInputs form-control" name="cardTitle"/>
+              <input type="text" id="newCardTitle" placeholder="" ng-model="newCard.title" required focus-me class="cardInputs form-control" name="cardTitle"/>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="newCardDetails">More details <small>(optional)</small></label>
+            <label class="control-label" for="newCardDetails">描述 <small>(可选)</small></label>
             <div>
                 <textarea id="newCardDetails" ng-model="newCard.details" class="cardInputs form-control" rows="7">
                 </textarea>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label">Card color</label>
+            <label class="control-label">卡片颜色</label>
         </div>
         <div class="form-group">
             <color-selector options="colorOptions" ng-model="newCard.cardColor" prefix="newCardColor" class="colorSelector" show-hex-code="true"/>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="submit" class="btn btn-primary">创建</button>
         </div>
       </form>
     </mpk-modal>
   </div>
 
   <div ng-controller="CardController">
-    <mpk-modal title="Card details" visible="showCardDetails">
+    <mpk-modal title="卡片详情" visible="showCardDetails">
         <form class="noMargin" name="cardDetails">
           <div class="form-group">
-              <label class="control-label" for="cardTitle">Kanban card title</label>
+              <label class="control-label" for="cardTitle">卡片标题</label>
               <div class="controls">
                 <ng-form ng-submit="editingTitle = false">
                 <div class="input-group">
@@ -208,7 +208,7 @@
               </div>
           </div>
           <div class="form-group">
-              <label class="control-label" for="cardTitle">Details</label>
+              <label class="control-label" for="cardTitle">详情</label>
 
               <div class="controls">
                   <div class="input-group">
@@ -222,30 +222,30 @@
               </div>
           </div>
           <div class="form-group">
-              <label class="control-label">Card color</label>
+              <label class="control-label">卡片颜色</label>
           </div>
           <div class="form-group">
               <color-selector options="colorOptions" ng-model="card.color" prefix="editCardColor" class="colorSelector" show-hex-code="true" />
           </div>
         </form>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
         </div>
     </mpk-modal>
   </div>        
 </div>
 
 <div ng-controller="NewKanbanController">
-  <mpk-modal title="New Kanban board" visible="showNewKanban">
+  <mpk-modal title="创建看板" visible="showNewKanban">
     <form class="noMargin" name="newKanbanForm">
         <div class="form-group">
-          <label class="control-label" for="kanbanNameFormField">Kanban name</label>
+          <label class="control-label" for="kanbanNameFormField">看板名称</label>
           <div>
-            <input type="text" id="kanbanNameFormField" placeholder="Kanban name" class="form-control" ng-model="model.kanbanName" required focus-me />
+            <input type="text" id="kanbanNameFormField" placeholder="新看板" class="form-control" ng-model="model.kanbanName" required focus-me />
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" for="numberOfColumnsField">Number of columns</label>
+          <label class="control-label" for="numberOfColumnsField">泳道数量</label>
           <div>
             <select id="numberOfColumnsField" ng-model="model.numberOfColumns" class="form-control" ng-options="number for number in [2,3,4,5,6,7,8,9]">
             </select>
@@ -253,19 +253,19 @@
         </div>
         <hr />
         <div class="form-group">
-          <label for="fromTemplate">Use existing Kanban as template</label>
+          <label for="fromTemplate">使用现有的看板作为模版</label>
           <div>
             <select id="fromTemplate" name="fromTemplate" ng-model="model.useTemplate" ng-options="name for name in model.kanbanNames" class="form-control">
-              <option>Existing kanbans ...</option>
+              <option>现有看板 ...</option>
             </select>
           </div>
         </div>
         <div class="alert alert-info">
-          <p>When using existing Kanban as template, <strong>number of columns</strong> and respective <strong>names</strong> will be used.</p>
+          <p>当使用模版创建看板时，将使用模版的<strong>泳道数量</strong>作为当前的设置。</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" ng-click="createNew()">Create new</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="submit" class="btn btn-primary" ng-click="createNew()">创建</button>
         </div>
     </form>
   </mpk-modal> 
@@ -307,10 +307,10 @@
 </mpk-modal>
 
 <div ng-controller="SwitchThemeController">
-  <mpk-modal title="Choose Kanban Theme" visible="showSwitchTheme">
+  <mpk-modal title="选择主题" visible="showSwitchTheme">
     <form ng-submit="switchTheme()" name="selectTheme" class="noMargin">
         <div class="form-group">
-          <label class="control-label" for="kanbanTheme">Themes to choose from</label>
+          <label class="control-label" for="kanbanTheme">选择需要切换到的主题</label>
         </div>
         <div class="row">
             <div class="col-md-5">
@@ -322,8 +322,8 @@
            </div>
         </div>
       <div class="modal-footer">
-        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary" type="submit">Switch</button>
+        <button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
+        <button class="btn btn-primary" type="submit">切换</button>
       </div>
     </form>
   </mpk-modal>
@@ -334,7 +334,7 @@
     <form class="form-horizontal" role="form">
       <div class="form-group has-success">
         <div class="col-md-offset-9 col-md-3">
-          <input type="text" name="filterByName" placeholder="Filter by card name ..." ng-model="model.filterByName" class="form-control" />
+          <input type="text" name="filterByName" placeholder="搜索 ..." ng-model="model.filterByName" class="form-control" />
         </div>
       </div>
     </form>
@@ -342,9 +342,9 @@
       <thead>
         <tr>
           <th></th>
-          <th style="width: 25%">Archived on</th>
-          <th style="width: 33%">Card title</th>
-          <th style="width: 40%">Description</th>
+          <th style="width: 25%">归档时间</th>
+          <th style="width: 33%">卡片标题</th>
+          <th style="width: 40%">描述</th>
         </tr>
       </thead>
         <tr ng-repeat="archivedCard in model.archived | archiveByCardName:model.filterByName">
@@ -357,17 +357,17 @@
       </tbody>
     </table>
     <div class="modal-footer">
-        <button class="btn btn-warning pull-left" ng-click="unarchiveSelected()">Un-archive selected</button>
-        <button class="btn btn-danger pull-left" ng-click="deleteSelected()">Delete selected</button>
-        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+        <button class="btn btn-warning pull-left" ng-click="unarchiveSelected()">取消归档</button>
+        <button class="btn btn-danger pull-left" ng-click="deleteSelected()">删除</button>
+        <button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
     </div>
 </div>
 
 <div ng-controller="ExportController">
-  <mpk-modal visible="showExportModal" title="Export Kanban">
+  <mpk-modal visible="showExportModal" title="导出看板">
     <form name="exportKanban" class="noMargin">
       <div class="form-group">
-        <label class="control-label" for="kanbanToExport">To export:</label>
+        <label class="control-label" for="kanbanToExport">选择要导出的看板：</label>
         <div>
           <select id="kanbanToExport" ng-model="model.selectedKanban" class="form-control"
             ng-options="name for name in model.allKanbanNames" ng-disabled="model.exportAll">
@@ -378,30 +378,30 @@
         <div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" ng-model="model.exportAll"> Export all Kanbans
+              <input type="checkbox" ng-model="model.exportAll"> 导出所有看板
             </label>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary" type="submit" ng-click="doExport()">Export</button>
+        <button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
+        <button class="btn btn-primary" type="submit" ng-click="doExport()">导出</button>
       </div>
     </form>
   </mpk-modal>
 </div>
 
 <div ng-controller="ImportController">
-  <mpk-modal visible="showImportModal" title="Import Kanban from file">
+  <mpk-modal visible="showImportModal" title="从文件中导入看板">
     <form name="importKanban" class="noMargin">
       <div class="form-group">
-        <label class="control-label" for="kanbanToExport">Select file:</label>
+        <label class="control-label" for="kanbanToExport">选择文件：</label>
         <input type="file" id="kanbanFile" name="kanbanFile" read-file ng-model="model.file" ng-change="model.fileSelected=true"/>
       </div>
-      <div class="alert alert-warning">If you import Kanban with the name that already exists, all the content of existing Kanban will be lost.</div>
+      <div class="alert alert-warning">如果导入的看板已存在，将覆盖掉当前看板。</div>
       <div class="modal-footer">
-        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary" type="submit" ng-click="import()" ng-disabled="model.file==''">Import</button>
+        <button class="btn btn-default" type="button" data-dismiss="modal">关闭</button>
+        <button class="btn btn-primary" type="submit" ng-click="import()" ng-disabled="model.file==''">导入</button>
       </div>
     </form>
   </mpk-mdodal>

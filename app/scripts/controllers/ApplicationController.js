@@ -37,7 +37,7 @@ angular.module('mpk').controller('ApplicationController',
 		$scope.$broadcast('OpenNewKanban', allKanbanNames(kanbanRepository));
 	};
 	$scope.kanbanMenu.delete = function(){
-		if (confirm('You sure you want to delete the entire Kanban?')){
+		if (confirm('确定要删除这个看板吗？')){
 			kanbanRepository.remove($scope.kanban.name);
 			var all = allKanbanNames(kanbanRepository);
 
