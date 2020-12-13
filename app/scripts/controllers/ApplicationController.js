@@ -12,7 +12,7 @@ angular.module('mpk').controller('ApplicationController',
 		$scope.selectedToOpen = $scope.kanban.name;
 		$location.path('/kanban/' + $scope.kanban.name);
 		$scope.switchToList = $scope.allKanbans.slice(0);
-		$scope.switchToList.splice(0,0,'Switch to ...');
+		$scope.switchToList.splice(0,0,'切换到 ...');
 	});
 
 	$scope.$on('ColumnsChanged', function(){
@@ -54,7 +54,7 @@ angular.module('mpk').controller('ApplicationController',
 			}
 
 			$scope.switchToList = $scope.allKanbans.slice(0);
-			$scope.switchToList.splice(0,0,'Switch to ...');
+			$scope.switchToList.splice(0,0,'切换到 ...');
 		}
 		return false;
 	};
@@ -164,14 +164,17 @@ angular.module('mpk').controller('ApplicationController',
 	};
 
 	$scope.switchToKanban = function(kanbanName){
-		if (kanbanName == 'Switch to ...') return;
+		if (kanbanName == '切换到 ...') return;
 		$scope.kanban = kanbanRepository.get(kanbanName);
-
+		
 		kanbanRepository.setLastUsed(kanbanName);
 		$scope.newName = kanbanName;
 		$location.path('/kanban/' + kanbanName);
 		kanbanRepository.save();
-		$scope.switchTo = 'Switch to ...';
+		$scope.switchTo = '切换到 ...';
+		document.getElementById("select").selectedIndex = 1;
+
+
 	};
 
 	$scope.openHelpShortcut = function($event){
@@ -181,7 +184,7 @@ angular.module('mpk').controller('ApplicationController',
 	// <-------- Handling different events in this block ---------------> //
 	$scope.spinConfig = {lines: 10, length: 3, width: 2, radius:5};
 
-	var currentKanban = new Kanban('Kanban name', 0);
+	var currentKanban = new Kanban('看板系统', 0);
 	var loadedRepo = kanbanRepository.load();
 
 	if (loadedRepo){
@@ -199,8 +202,8 @@ angular.module('mpk').controller('ApplicationController',
 	$scope.selectedToOpen = $scope.newName = currentKanban.name;
 
 	$scope.switchToList = $scope.allKanbans.slice(0);
-	$scope.switchToList.splice(0, 0, 'Switch to ...');
-	$scope.switchTo = 'Switch to ...';
+	$scope.switchToList.splice(0, 0, '切换到 ...');
+	$scope.switchTo = '切换到 ...';
 
 	$scope.$watch('kanban', function(){
 		kanbanRepository.save();
