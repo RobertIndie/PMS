@@ -1,5 +1,5 @@
 window.themes = [
-	{"name": "Default Bright", "css":"default-bright"},
-	{"name": "Default Dark", "css":"default-dark"}
+	{"name": "浅色", "css":"default-bright"},
+	{"name": "深色", "css":"default-dark"}
 	//{"name": "Trello", "css":"trello"},
 ];
